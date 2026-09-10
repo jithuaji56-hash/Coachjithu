@@ -428,6 +428,20 @@ const faqs = [
 ];
 
 export default function Page() {
+  useEffect(() => {
+    document.title = "Coach Jithu";
+
+    const faviconHref = "/images/coachjithulogo.PNG";
+    let favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.appendChild(favicon);
+    }
+
+    favicon.href = faviconHref;
+  }, []);
   const programScroller = useRef<HTMLDivElement>(null);
   const galleryScroller = useRef<HTMLDivElement>(null);
   const galleryDirectionRef = useRef<1 | -1>(1);
