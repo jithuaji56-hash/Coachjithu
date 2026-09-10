@@ -417,14 +417,14 @@ const reviews = [
 ];
 
 const faqs = [
-  "Who can join online coaching?",
-  "Do I need gym equipment?",
-  "Is the diet personalised?",
-  "Can I join from outside Kerala?",
-  "How does online training work?",
-  "How often will my plan be updated?",
-  "Can beginners join?",
-  "Do you provide weight-loss programs?",
+  { question: "Who can join online coaching?", answer: "Anyone looking for structured fitness coaching can join, whether your goal is weight loss, muscle gain, strength, fitness improvement or a healthier lifestyle." },
+  { question: "Do I need gym equipment?", answer: "No. The training plan can be adapted to the equipment you have available. Home-based and gym-based workouts can both be structured according to your needs." },
+  { question: "Is the diet personalised?", answer: "Yes. Nutrition guidance can be personalised around your fitness goal, food preferences, lifestyle, calorie and protein requirements, and daily routine." },
+  { question: "Can I join from outside Kerala?", answer: "Yes. Online coaching can be provided from anywhere, so you can join even if you are outside Kerala. Your workout and nutrition guidance are managed online." },
+  { question: "How does online training work?", answer: "After understanding your goals, fitness level and routine, Coach Jithu provides your workout and nutrition guidance online, with progress tracking, regular guidance and support." },
+  { question: "How often will my plan be updated?", answer: "Your plan can be adjusted based on your progress, performance, goals and lifestyle. Workout and nutrition recommendations are modified when needed to keep your training effective." },
+  { question: "Can beginners join?", answer: "Yes. Beginners can join. The coaching approach is adjusted to your current fitness level, experience and goals so you can build strength, technique and consistency safely." },
+  { question: "Do you provide weight-loss programs?", answer: "Yes. Weight-loss coaching can include personalised workouts, nutrition guidance, calorie and portion guidance, progress tracking and adjustments based on your results." },
 ];
 
 export default function Page() {
@@ -2599,7 +2599,7 @@ export default function Page() {
       <section className="photo-gallery" aria-label="Coach Jithu's fitness target gym and studio">
         <div className="container photo-gallery-head">
           <div className="photo-gallery-head-row">
-            <h2 className="photo-gallery-title">Coach jithu&apos;s fitness target gym &amp; studio</h2>
+            <h4 className="photo-gallery-title">COACH JITHU&apos;S FITNESS TARGET GYM &amp; STUDIO</h4>
             <a
               className="button outline gym-map-button"
               href="https://share.google/ApWDdKE7zMXj1xwTx"
@@ -3004,25 +3004,21 @@ export default function Page() {
           </div>
 
           <div className="faq-list">
-            {faqs.map((question, index) => {
+            {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
-                <div className="faq-item scroll-reveal" key={question}>
+                <div className="faq-item scroll-reveal" key={faq.question}>
                   <button
                     className="faq-button"
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                   >
-                    <span>{question}</span>
+                    <span>{faq.question}</span>
                     <ChevronDown size={17} />
                   </button>
                   <div className={`faq-answer ${isOpen ? "open" : ""}`}>
-                    <p>
-                      Yes. Coach Jithu can tailor the coaching approach around
-                      your current fitness level, goals, schedule and available
-                      equipment.
-                    </p>
+                    <p>{faq.answer}</p>
                   </div>
                 </div>
               );
